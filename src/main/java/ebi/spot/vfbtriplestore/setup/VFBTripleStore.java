@@ -1,5 +1,6 @@
 package ebi.spot.vfbtriplestore.setup;
 
+import java.io.File;
 import java.io.InputStream;
 
 import org.eclipse.rdf4j.model.IRI;
@@ -20,9 +21,10 @@ public class VFBTripleStore {
     /**
      * Creates an inmemory triple store
      *
+     * @param storedir
      */
-    public VFBTripleStore() {
-        repo = new SailRepository(new MemoryStore());
+    public VFBTripleStore(File storedir) {
+        repo = new SailRepository(new MemoryStore(storedir));
         repo.initialize();
     }
 

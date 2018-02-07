@@ -13,7 +13,7 @@ public class SetupTripleStore {
 
         File inputdir = new File(args[0]);
         File storedir = new File(args[1]);
-        VFBTripleStore store = new VFBTripleStore();
+        VFBTripleStore store = new VFBTripleStore(storedir);
 
         if(!inputdir.exists()) {
             throw new IllegalArgumentException("Input dir "+inputdir+" does not exist");
