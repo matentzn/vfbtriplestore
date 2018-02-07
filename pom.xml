@@ -59,11 +59,13 @@
         </dependency>
         -->
 
+        <!--
         <dependency>
             <groupId>ebi.ontology</groupId>
             <artifactId>utilities</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+-->
 
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
