@@ -43,6 +43,6 @@ public class SetupTripleStore {
 
     private static void addToRepo(Path f, VFBTripleStore store) throws IOException {
         store.loadZippedFile(Files.newInputStream(f),
-                RDFFormat.NTRIPLES);
+                RDFFormat.TURTLE);
     }
 }
