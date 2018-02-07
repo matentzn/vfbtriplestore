@@ -27,6 +27,7 @@ public class SetupTripleStore {
                     path -> path.toString().endsWith(".gz"))
                     .forEach(f-> {
                         try {
+                            System.out.println(f);
                             addToRepo(f, store);
                         } catch (IOException e) {
                             e.printStackTrace();
