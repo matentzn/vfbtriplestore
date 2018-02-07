@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ebi.spot</groupId>
+    <artifactId>vfb.triplestore</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.eclipse.rdf4j</groupId>
+                <artifactId>rdf4j-bom</artifactId>
+                <version>2.2.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.owlapi/owlapi-distribution -->
+        <dependency>
+            <groupId>net.sourceforge.owlapi</groupId>
+            <artifactId>owlapi-distribution</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.semanticweb.elk</groupId>
+            <artifactId>elk-owlapi</artifactId>
+            <version>0.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sourceforge.owlapi</groupId>
+                    <artifactId>owlapi-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sourceforge.owlapi</groupId>
+                    <artifactId>owlapi-apibinding</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sourceforge.owlapi</groupId>
+                    <artifactId>owlapi-impl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>ebi.ontology</groupId>
+            <artifactId>utilities</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-rio-rdfxml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-rio-turtle</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-repository-api -->
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-repository-api</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-repository-sail -->
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-repository-sail</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-repository-event -->
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-repository-event</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-sail-memory -->
+        <dependency>
+            <groupId>org.eclipse.rdf4j</groupId>
+            <artifactId>rdf4j-sail-memory</artifactId>
+        </dependency>
+
+
+    </dependencies>
+    <build><plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>ebi.corpusdebug.main.CorpusDebugger</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <!-- bind to the packaging phase -->
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins></build>
+
+
+
+</project>
