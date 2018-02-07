@@ -107,7 +107,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>ebi.corpusdebug.main.CorpusDebugger</mainClass>
+                        <mainClass>ebi.spot.vfbtriplestore.setup.SetupTripleStore</mainClass>
                     </manifest>
                 </archive>
                 <descriptorRefs>
